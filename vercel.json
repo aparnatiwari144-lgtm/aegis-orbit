@@ -1,23 +1,29 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "index.html",
-      "use": "@vercel/static"
-    }
-  ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/index.py"
+      "src": "/api/reentry-predictions/(.*)",
+      "dest": "/api/reentry-predictions.json"
     },
     {
-      "src": "/ws/(.*)",
-      "dest": "/api/index.py"
+      "src": "/api/reentry-predictions",
+      "dest": "/api/reentry-predictions.json"
+    },
+    {
+      "src": "/api/health",
+      "dest": "/api/health.json"
+    },
+    {
+      "src": "/api/system/status",
+      "dest": "/api/system-status.json"
+    },
+    {
+      "src": "/api/conjunctions",
+      "dest": "/api/conjunctions.json"
+    },
+    {
+      "src": "/api/objects",
+      "dest": "/api/objects.json"
     },
     {
       "src": "/(.*)",
