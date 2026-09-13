@@ -6,7 +6,19 @@ import sqlite3
 import os
 from datetime import datetime, timezone
 
-DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "aegis_orbit.db")
+# Determine database path (supports Vercel and AWS Lambda read-only serverless environments)
+if os.environ.get("VERCEL") or os.environ.get("AWS_LAMBDA_FUNCTION_NAME"):
+    tmp_db = "/tmp/aegis_orbit.db"
+    orig_db = os.path.join(os.path.dirname(os.path.dirname(__file__)), "aegis_orbit.db")
+    if not os.path.exists(tmp_db) and os.path.exists(orig_db):
+        import shutil
+        try:
+            shutil.copyfile(orig_db, tmp_db)
+        except Exception:
+            pass
+    DB_PATH = tmp_db
+else:
+    DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "aegis_orbit.db")
 
 def get_db_connection():
     conn = sqlite3.connect(DB_PATH)

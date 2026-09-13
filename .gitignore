@@ -23,5 +23,6 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Logs
+# Logs & Archives
 *.log
+*.zip
