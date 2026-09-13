@@ -1,0 +1,35 @@
+{
+  "model_version": "2.1.0-lightgbm",
+  "trained_at": "2026-09-13T08:24:15.143241+00:00",
+  "train_samples": 1468,
+  "test_samples": 366,
+  "time_split_cutoff_year": 2023.5,
+  "feature_count": 12,
+  "features": [
+    "altitude_km",
+    "perigee_km",
+    "apogee_km",
+    "decay_rate_km_day",
+    "altitude_drop_30d",
+    "mean_motion_revs_day",
+    "mean_motion_dot",
+    "bstar_drag_term",
+    "eccentricity",
+    "f107_solar_flux",
+    "is_debris",
+    "inclination_deg"
+  ],
+  "stage1_classifier_metrics": {
+    "accuracy": 0.9891,
+    "precision": 0.9877,
+    "recall": 0.9877,
+    "f1_score": 0.9877,
+    "roc_auc": 0.9998
+  },
+  "stage2_regressor_metrics": {
+    "mean_absolute_error_days": 20.8,
+    "r2_score": 0.7978
+  },
+  "uncertainty_policy": "Empirical +/-15% (imminent) to +/-35% (long-horizon) based on thermospheric density variance",
+  "modeling_boundary": "Predicts atmospheric decay and burn-up interface; does not model ground debris impact footprint."
+}
