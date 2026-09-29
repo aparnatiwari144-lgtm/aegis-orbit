@@ -1,6 +1,6 @@
 {
   "model_version": "2.1.0-lightgbm",
-  "trained_at": "2026-09-13T08:24:15.143241+00:00",
+  "trained_at": "2026-09-13T11:48:26.822453+00:00",
   "train_samples": 1468,
   "test_samples": 366,
   "time_split_cutoff_year": 2023.5,
